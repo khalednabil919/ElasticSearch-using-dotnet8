@@ -1,0 +1,6 @@
+@ElasticSearch_using_dotnet8_HostAddress = http://localhost:5249
+
+GET {{ElasticSearch_using_dotnet8_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

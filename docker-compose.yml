@@ -1,0 +1,6 @@
+services:
+  elasticsearch-using-dotnet8:
+    image: ${DOCKER_REGISTRY-}elasticsearchusingdotnet8
+    build:
+      context: .
+      dockerfile: ElasticSearch-using-dotnet8/Dockerfile
