@@ -22,7 +22,10 @@ namespace ElasticSearch_using_dotnet8.services
         public async Task CreateIndexIfNotExistAsync(string indexName)
         {
             if(!_client.Indices.Exists(indexName).Exists)
-                await _client.Indices.CreateAsync(indexName);
+            {
+
+                var data = await _client.Indices.CreateAsync(indexName);
+            }
         }
         public async Task<bool> AddOrUpdate(User user)
         {
@@ -58,7 +61,10 @@ namespace ElasticSearch_using_dotnet8.services
                 s.Index(_elasticSettings.DefaultIndex);
 
             });
-            return response.Documents.ToList();
+            if(response.Documents.Any())
+                return response.Documents.ToList();
+
+            return null;
         }
 
         public async Task<bool> Remove(string key)
